@@ -21,7 +21,7 @@
       <div class="note">Choose a price plan for Wi-Fi Calling with You-Tel.</div>
     </div>
     <div class="plan-section">
-      <% for(var i=0;i<pricePlans.length;i++) { %>
+      <% for(let i=0;i<pricePlans.length;i++) { %>
         <div class="row list-row" onclick="showPlan('<%=pricePlans[i].planId%>')">
           <span class="plan-name"><%=pricePlans[i].title%></span>
           <span class="plan-price"><%=pricePlans[i].currency%><%=pricePlans[i].price%> a month</span>

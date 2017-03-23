@@ -15,7 +15,8 @@ function createPool(_host, _port, _user, _password, _database, _connectionLimit)
 const pool = createPool(dbconfig.mysql_host, dbconfig.mysql_port, dbconfig.mysql_user,
     dbconfig.mysql_password, dbconfig.mysql_database, dbconfig.mysql_connectionLimit);
 
-// pool.query('select `name` from hobbits').then(function(rows){
+//usage:
+// pool.query('select ?? from ?? where ?? = ?', ['name', 'person', 'id', 1]).then(function(rows){
 //     // Logs out a list of hobbits 
 //     console.log(rows);
 // });

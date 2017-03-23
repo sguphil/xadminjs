@@ -6,12 +6,17 @@ function start(host, port){
   let app = new xadmin(host, port);
   app.init();
   app.start();
-  console.log('check=====start');
-  // dbpool.query('select * from person where ?? = ?', ['number', 1]).then((data) =>{
-  //   logger.debug('data=======', data);
-  // })
-  logger.debug('start======');
+  logger.debug('server start, listen on port:', port);
 }
 
+process.on('SIGTERM',  () => {
+  logger.info('Gracefully shutdown ...');
+  process.exit(0);
+});
+
+process.on('uncaughtException', function(err) {
+  logger.error(err, 'exception occuried');
+  process.exit(1);
+});
 
 start('127.0.0.1', 3000);
