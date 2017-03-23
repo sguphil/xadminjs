@@ -1,3 +1,4 @@
+let dbconfig = require('../config/serverconfig.json');
 let mysql = require('promise-mysql');
 function createPool(_host, _port, _user, _password, _database, _connectionLimit) {
     return mysql.createPool({
@@ -10,7 +11,9 @@ function createPool(_host, _port, _user, _password, _database, _connectionLimit)
     });
 }
 
-const pool =createPool('127.0.0.1', 3306, 'root', 'root', 'test', 10);
+
+const pool = createPool(dbconfig.mysql_host, dbconfig.mysql_port, dbconfig.mysql_user,
+    dbconfig.mysql_password, dbconfig.mysql_database, dbconfig.mysql_connectionLimit);
 
 // pool.query('select `name` from hobbits').then(function(rows){
 //     // Logs out a list of hobbits 

@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "_mocha -c test/**/test*$1*.js"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
@@ -15,6 +16,10 @@
     "morgan": "~1.7.0",
     "promise-mysql": "^3.0.0",
     "pug": "~2.0.0-beta10",
-    "serve-favicon": "~2.3.2"
+    "serve-favicon": "~2.3.2",
+    "should": "^11.2.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
   }
 }
