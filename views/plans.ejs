@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+<head>
+  <title>ses-sws</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header-section">
+      <div class="col-sm-2 header-menu-left"><a href="javascript:signUpEsimCompleted();">Back</a></div>
+      <div class="col-sm-8 header-title Regular-text">Choose Price Plan</div>
+      <div class="col-sm-2 header-menu-right"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="title-section">
+      <div class="section-title">PRICE PLAN OPTIONS:</div>
+      <div class="note">Choose a price plan for Wi-Fi Calling with You-Tel.</div>
+    </div>
+    <div class="plan-section">
+      <% for(var i=0;i<pricePlans.length;i++) { %>
+        <div class="row list-row" onclick="showPlan('<%=pricePlans[i].planId%>')">
+          <span class="plan-name"><%=pricePlans[i].title%></span>
+          <span class="plan-price"><%=pricePlans[i].currency%><%=pricePlans[i].price%> a month</span>
+        </div>
+      <% } %>
+    </div>
+    <div class="tip-section">
+      <p>You can pay using your Paypal account.</p>
+        <br/>
+      <p><img src="images/paypal.png" width="64" alt=""/></p>
+    </div>
+  </div>
+</body>
+
+<script>
+  function showPlan(val) {
+    window.location.href = "/plandetail/" + val;
+  }
+    
+  function signUpEsimCompleted(){
+    if (typeof DataActivationController === "object") { 
+        DataActivationController.doneSelected();
+    }
+}
+</script>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+<head>
+  <title>ses-sws</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header-section">
+      <div class="col-sm-2 header-menu-left"><a href='/'>Back</a></div>
+      <div class="col-sm-8 header-title Regular-text">Price Plan Details</div>
+      <div class="col-sm-2 header-menu-right Regular-text"><a href='/buy'>Buy</a></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="title-section">
+      <div class="note">You will be subscribed to and charged for the plan below by You-Tel.</div>
+    </div>
+    <div class="plan-detail-section">
+      <div class="plan-icon"><img src="/images/logo.png" alt="" /></div>
+      <div class="plan-details">
+        <span class="plan-name"><%=targetPlan.title %></span>
+        <span class="plan-price"><%=targetPlan.currency%><%=targetPlan.price%> /mo.</span>
+        <span class="plan-description">Includes 300 minutes of Wi-Fi Calling</span>
+      </div>
+      <div class="more-info">
+        <p>More information about the plan:</p>
+        <ul>
+          <li>You will be billed via Paypal every 30 days, on the date your current plan ends.</li>
+          <li>You can change or cancel your plan at anytime with no penalty fee.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
