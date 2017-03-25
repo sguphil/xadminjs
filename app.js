@@ -2,14 +2,14 @@ let xadmin = require('./server');
 let logger = require('./loginit').logger('app.js');
 let dbpool = require('./db');
 
-function start(host, port){
+async function start(host, port){
   let app = new xadmin(host, port);
   app.init();
   app.start();
   logger.debug('server start, listen on port:', port);
 }
 
-process.on('SIGTERM',  () => {
+process.on('SIGTERM',  async () => {
   logger.info('Gracefully shutdown ...');
   process.exit(0);
 });

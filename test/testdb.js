@@ -7,13 +7,13 @@ let dbpool = require('../db');
 
 describe('#testdb', function () {
 
-    it('should found record', function (done) {
-        dbpool.query('select * from person where ?? = ?', ['number', 1]).then((data) => {
+    it('should found record', async function () {
+        let data = await dbpool.query('select * from person where ?? = ?', ['number', 1]);//.then((data) => {
             logger.debug('data=======', data);
             should.exists(data);
             should.equal(data[0].number, 1);
-            done();
-        })
+            //done();
+        //})
     });
 });
 
