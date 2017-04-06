@@ -7,6 +7,7 @@ let bodyParser = require('body-parser');
 
 let index = require('./routes/index');
 let users = require('./routes/users');
+let login = require('./routes/login');
 let logger = require('./loginit').logger('server.js');
 let log4js = require('log4js');
 
@@ -20,19 +21,31 @@ class xadmin {
     init() {
         // view engine setup
         this.app.set('views', path.join(__dirname, 'views'));
-        this.app.set('view engine', 'pug');
+        this.app.engine('.html', require('ejs').__express);
+        this.app.set('view engine', 'html');
+
 
         // uncomment after placing your favicon in /public
         //this.app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
         //this.app.use(logger);
-        this.app.use(log4js.connectLogger(logger, {level:'debug', format:':method :url'})); 
+        this.app.use(log4js.connectLogger(logger, { level: 'debug', format: ':method :url' }));
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(cookieParser());
         this.app.use(express.static(path.join(__dirname, 'public')));
 
         this.app.use('/', index);
-        this.app.use('/users', users);
+        this.app.post('/login', function (req, res) {
+
+            //    new mysql().GetDate(req.body.num, function (rt_sql) {
+            //        res.send(rt_sql[0]);
+            //   });
+
+            console.log(req.body);
+            res.send("返回的数据");
+        });
+        // this.app.use('/login', login);
+        // this.app.use('/users', users);
 
         // catch 404 and forward to error handler
         this.app.use(function (req, res, next) {

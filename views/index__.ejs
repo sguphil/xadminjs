@@ -1,0 +1,39 @@
+<html>
+
+	<head>
+		<title>xadmin login</title>
+		<meta charset="utf-8" />
+		<script src="../public/libs/jquery-3.2.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="application/javascript">
+			$(function() {
+				$("input#loggin").click(function() {
+					var name = $("input#username");
+					var pwd = $("input#password");
+					var res = $("input#result");
+					res.val(name.val());
+					alert("value:" + name.val());
+					$.post("/login", 
+					{"username":name.val(), "password":pwd.val()},
+					function(data){
+						alert("send success");
+					}
+					)
+				});
+			})
+		</script>
+	</head>
+
+	<body>
+		<div class="login">
+			<label>user name:</label>
+			<input id="username" type="text" />
+			<label>password:</label>
+			<input id="password" type="password" />
+			<input type="text" name="result" id="result" />
+			<input id="loggin" type="button" name="login" />
+			<p>click to hide</p>
+		</div>
+
+	</body>
+
+</html>
